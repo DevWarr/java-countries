@@ -7,7 +7,7 @@ public class Country
     private static final AtomicInteger counter = new AtomicInteger();
     private int id;
     private String name;
-    private int population;
+    private long population;
     private int landMass;
     private int medianAge;
 
@@ -32,11 +32,11 @@ public class Country
         this.name = name;
     }
 
-    public int getPopulation() {
+    public long getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(long population) {
         this.population = population;
     }
 

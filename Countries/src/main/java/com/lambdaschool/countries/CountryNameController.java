@@ -17,7 +17,7 @@ public class CountryNameController
 
     //localhost:8080/names/all
     @GetMapping(value = "/all", produces = {"application/json"})
-    public ResponseEntity<?> listAllNames()
+    public ResponseEntity<?> listByName()
     {
         ArrayList<Country> rtnCountryList = CountriesApplication.nowCountryList.countryList;
         rtnCountryList.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
@@ -26,7 +26,7 @@ public class CountryNameController
 
     //localhost:8080/names/start/{letter}
     @GetMapping(value = "/start/{letter}", produces = {"application/json"})
-    public ResponseEntity<?> listNamesStartingWithString(@PathVariable String letter)
+    public ResponseEntity<?> listByNameStartingWithString(@PathVariable String letter)
     {
         ArrayList<Country> rtnCountryList = CountriesApplication.nowCountryList.findAllCountry(c -> c.getName().toUpperCase().startsWith(letter.toUpperCase()));
         rtnCountryList.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
@@ -35,7 +35,7 @@ public class CountryNameController
 
     //localhost:8080/names/size/{number}
     @GetMapping(value = "/size/{length}", produces = {"application/json"})
-    public ResponseEntity<?> listNamesByNameLength(@PathVariable String length)
+    public ResponseEntity<?> listByNameLength(@PathVariable String length)
     {
         // right now at least, we could type in anything after "/size".
         // Maybe "/size/twelve" or "/size/askjhl89y23".
